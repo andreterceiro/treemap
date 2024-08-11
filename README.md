@@ -6,7 +6,7 @@ As I will write the text in English, I will express the numbers in the notation 
 
 Let's think. We need to allocate all the parts in a big part, who needs to be a perfect rectangle (or a square).
 
-I chatted with Chat GPT to try to understand better the problem. Let's talk about the understand:
+I chatted with Chat GPT to try to understand better the problem. Let's talk about my understand:
 
 We will try to build a treemap with the numbers 1, 2, 10, 20, 50.
 
@@ -32,7 +32,7 @@ Proportionally, the `area` of the "1" part will be 5,783.1325
 
 We defined that the total square has the 800x600 dimensions. The solution of Chat GPT adopted the 3 minor values on the left and the remainder 2 values on the `right`. We will adopt that we will have:
 - If the total of the parts is an even number, then we will have half of the parts in the left and half of the parts in the right;
-- If the total of the parts is an odd number, then we will have half of the parts in the left and half of the parts in the right;
+- If the total of the parts is an odd number, then we will have half of the parts + 0.5 in the left and half of the parts -0.5 in the right. Example: 5 parts - half of this value is 2.5. 2.5 + 0.5 = 3 and 2.5 - 0.5 = 2. 3 + 2 = 5;
 - The lower values will be allocated in the left. And this will be result in a right solution? Yes, because the right part will be bigger in x aixis. 
  
 "The general shape" of the general idea will be:
@@ -49,9 +49,9 @@ We defined that the total square has the 800x600 dimensions. The solution of Cha
 
 ``` 
 
-And more complex strucures, with more than 2 columns as example. We will not build this types of treemaps.
+And more complex strucures, with more than 2 columns as example? We will not build this types of treemaps.
 
-Let's return to our solution. We will have the `height` of 600. Thus the sum of the `height` on the three parts of the left with the value 600. The dimension will be the same in this 3 parts. This way, proportionally, the `height` of the Y part "1" will be 1/(1 + 2 + 10) * 600 => 1/13 * 600 = 46.1538
+Let's return to our solution. We will have the `height` of 600. Thus the sum of the `height` of the three parts on the left will have the value 600. The dimension will be the same in this 3 parts. This way, proportionally, the `height` of the Y part "1" will be 1/(1 + 2 + 10) * 600 => 1/13 * 600 = 46.1538
 
 We know that the total `area` of the "1" part will be 5,783.1325 as we calculated before. Then the `width` will be:
 
