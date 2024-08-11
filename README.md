@@ -111,4 +111,4 @@ The rectangles will be:
 - Part "20": 674.6987 x 171.4285
 - Part "50": 674.6987 x 428.5714
 
-Let's build the `PHP` script to make the `tree map`. We need first to install the `GD` extension, ok? Please see [this file](tests/manual/test-rectangle-1.php)
+Let's build the `PHP` script to make the `tree map`. We need first to install the `GD` extension, ok? Please see [this file](tests/manual/test-rectangle-1.php). You can see the result of this script [here](https://terceiro.com.br/treemap/test-rectangle-1.php).
