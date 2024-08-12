@@ -8,6 +8,8 @@ After the initial solution I will make a [more flexible solution](#more-flexible
 
 # General
 
+### 2 columns, left line with 3 items and right line with 2 items - 5 items
+
 Let's think. We need to allocate all the parts in a big part, who needs to be a perfect rectangle (or a square).
 
 I chatted with Chat GPT to try to understand better the problem. Let's talk about my understand:
@@ -127,6 +129,8 @@ Let's build the `PHP` script to make the `tree map`. We need first to install th
 
 
 # More flexible solution
+
+### 3 (lines) x 2 (columns) treemap
 
 After talking about my solution and thinking in the necessary rules that I have setted, I conclude that I don't need so strict rules.
 
@@ -384,3 +388,9 @@ Right part:
 - Value 17 - dimensions: 575 x 203.26086956. Area: 116,875
 
 We elaborated [this script](test/manual/test2.php) to build this treemap, with these values, with PHP (and GD). And you can see the execution of this script [here](http://www.terceiro.com.br/treemap/test2.php).
+
+
+### 2 (lines) x 3 (columns) treemap
+
+Now let's make a treemap with 3 colums, with the same values of the previous study case.
+
