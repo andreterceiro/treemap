@@ -1,6 +1,6 @@
 # Observation
 
-As I will write the text in English, I will express the numbers in the notation adopted in US ("EUA" in brazilian portuguese). The thousand separator will be "," and decimal separator will be ".". We adopt the inverse in portuguese. 
+As I will write the text in English, I will express the numbers in the notation adopted in US ("EUA" in brazilian portuguese). The thousand separator will be "," and decimal separator will be ".". We adopt the inverse in portuguese.
 
 # Note
 
@@ -41,7 +41,7 @@ We defined that the total square has the 800x600 dimensions. The solution of Cha
 
 - If the total of the parts is an even number, then we will have half of the parts in the left and half of the parts in the right;
 - If the total of the parts is an odd number, then we will have half of the parts + 0.5 in the left and half of the parts -0.5 in the right. Example: 5 parts - half of this value is 2.5. 2.5 + 0.5 = 3 and 2.5 - 0.5 = 2. 3 + 2 = 5;
-- The lower values will be allocated in the left. And this will be result in a right solution? Yes, because the right part will be bigger in x aixis. 
+- The lower values will be allocated in the left. And this will be result in a right solution? Yes, because the right part will be bigger in x aixis.
  
 "The general shape" of the general idea will be:
 
@@ -55,7 +55,7 @@ We defined that the total square has the 800x600 dimensions. The solution of Cha
 |  |        |
 |__|________|
 
-``` 
+```
 
 Let's return to our solution. We will have the `height` of 600. Thus the sum of the `height` of the three parts on the left will have the value 600. The dimension will be the same in this 3 parts. This way, proportionally, the `height` of the Y part "1" will be 1/(1 + 2 + 10) * 600 => 1/13 * 600 = 46.1538
 
@@ -70,7 +70,7 @@ To calculate the another ``areas` (not ``width`s` or ``height`s`) we need only t
 - "1" part: `area` will be 5,783.1325 x 1 = 5,783.1325 
 - "2" part: `area` will be 5,783.1325 x 2 = 11,566.2650
 - "10" part: `area` will be 5,783.1325 x 10 = 57,831.3250
-- "20" part: `area` will be 5,783.1325 x 20 = 115,662.6500  
+- "20" part: `area` will be 5,783.1325 x 20 = 115,662.6500
 - "50" part: `area` will be 5,783.1325 x 50 = 289,156.6250
 
 Let's verify. We need to have the sum of the parts equals to the total:
@@ -117,9 +117,9 @@ Ok, seems right
 
 The rectangles will be:
 
-- Part "1": 125.3013 x 46.1538  
+- Part "1": 125.3013 x 46.1538
 - Part "2": 125.3013 x 92.3076 
-- Part "10": 125.3013 x 461.5380  
+- Part "10": 125.3013 x 461.5380
 - Part "20": 674.6987 x 171.4285
 - Part "50": 674.6987 x 428.5714
 
@@ -318,7 +318,7 @@ We know that we must not have a unique `line height`, but we need the same `widt
 
 We will select the lower values to the left `column`, remembering that how the `column width will vary between different `columns`, we will have the `areas` proportionally allocated correctly.
 
-Proportionally to th values, we have this `areas`:
+Proportionally to the values, we have this `areas`:
 
 - Value 5: 5 x 6,875 = 34,375 
 - Value 8: 8 x 6,875 = 55,000
@@ -338,7 +338,7 @@ The total height is 550 with the proportional parts 5, 8 and 9. So, the values o
  
 The sum of the values that will be allocated in the left part will be `5 + 8 + 9 = 22`  
 
-- Value 5: (550 / 22) * 5 = 125 
+- Value 5: (550 / 22) * 5 = 125
 - Value 8: (550 / 22) * 8 = 200
 - Value 9: (550 / 22) * 9 = 225
 
@@ -369,4 +369,18 @@ We have the `areas` of the blocks of the `right` part. And the `width`. So we ca
 Let's sum these values to make a final verification:
 167.39130434 + 179.34782608 + 203.26086956 = 549.99999998 = 550 (approximately)
 
-Seems right...
+Seems right... We can result in this dimensions and areas:
+
+Left part:
+
+- Value 5 - dimensions: 275 x 125 . Area: 34,375  
+- Value 8 - dimensions: 275 x 200. Area: 55,000
+- Value 9 - dimensions: 275 x 225. Area: 61,875
+
+Right part:
+
+- Value 14 - dimensions: 575 x 163.39130434. Area: 96,250
+- Value 15 - dimensions: 575 x 179.34782608. Area: 103,125
+- Value 17 - dimensions: 575 x 203.26086956. Area: 116,875
+
+We elaborated [this script](test/manual/test2.php) to build this treemap, with these values, with PHP (and GD). And you can see the execution of this script [here](http://www.terceiro.com.br/treemap/test2.php)
