@@ -254,11 +254,13 @@ First processing of the loop
 $itemsPerColumns = [3]; // totalItem = 9/3 = 3 (ceil = 3) ... $remainderItems = 9 - 3 = 6
 $numberOfColumns = 2;
 
-Second
+Second:
+
 $itemsPerColumns = [3, 3]; // totalItem = 6/2 = 3 (ceil = 3) ... $remainderItems = 6 - 3 = 3
 $numberOfColumns = 1;
 
-Third
+Third:
+
 $itemsPerColumns = [3, 3, 2]; // totalItem = 3/1 = 3 ... $remainderItems = 3 - 3 = 0
 $numberOfColumns = 0; // Now exit the loop
 
