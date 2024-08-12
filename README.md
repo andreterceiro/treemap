@@ -126,14 +126,16 @@ First of all I talked with another person about this question: if I have 9 items
 ![Chat GPT answer](images/chatgpt-number-columns-treemap.png).
 
 So I can let the user to decide. Besides this user selection, we enforce the number of lines. We need to test a rules. Let's build the first rule:
-- We will have at minimun 1 columns;
-- We will have at maximun 4 columns. Why? Because think in 20 items. Is possible to build a treemap with 20 columns of 1 item, a little strange, right? How? adjusting the width of every column, respecting the height, that way the rectangle representing every item correspond proportionally to each value. We will try to make a draf under this message:
+- We will have at minimum 1 columns;
+- We will have at maximum 4 columns. Why? Because think in 20 items. Is possible to build a treemap with 20 columns of 1 item, a little strange, right? How? adjusting the width of every column, respecting the height, that way the rectangle representing every item correspond proportionally to each value. We will try to make a draf under this message:
 
 ```
  _ _________
 |_|_________|
 
 ```
+
+But we simple can ignore this rule of maximun of columns. The solution still works. Obviously do not have sense in selecting 5 colums for 3 items. The maximum number of columns needs to be the number of items.
 
 I think you understood the general idea. So the user will can select the number of items, its values and the number of columns. The columns will vary beetween 1 and 4 and obvoiusly we can't allow that the number of columns to be great than the number of items.
 
@@ -262,5 +264,32 @@ $numberOfColumns = 0; // Now exit the loop
 
 Ok, the solution to select the number of items per column works.
 
+Let's return to our previous challenge. First we think that the user selected 2 columns. Then we will have:
+- 6 items in 2 columns, 3 items by column;
+- Total area of 550x850.
+
+Repeating the make the reading easier, our random values are:
+- 5
+- 8
+- 9
+- 14
+- 15
+- 17
+
+Testing our previous algoritm. First processing of the loop:
+$itemsPerColumns = [3]; // totalItem = 6/2 = 3 (ceil = 3) ... $remainderItems = 6 - 3 = 3
+$numberOfColumns = 1;
+
+Second
+$itemsPerColumns = [3, 3]; // totalItem = 3/1 = 3 (ceil = 3) ... $remainderItems = 3 - 3 = 0
+$numberOfColumns = 0;
+
+We reached as we noted before in 2 columns with 3 items in each column ([3, 3]).
+
+The total area is 550 x 850 = 467,500
+
+The sum of the values of the items is 5 + 8 + 9 + 14 + 15 + 17 = 68
+
+Then the proportion will be 467,500 / 68 = 6875.0000 (6875)
 
 
