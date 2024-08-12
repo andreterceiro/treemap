@@ -1,6 +1,6 @@
 <?php
-$imageWidth = 800;
-$imageHeight = 600;
+$imageWidth = 850;
+$imageHeight = 550;
 $im = imagecreatetruecolor($imageWidth, $imageHeight);
 $red = imagecolorallocate($im, 255, 150, 150);
 $green = imagecolorallocate($im, 150, 255, 150);
