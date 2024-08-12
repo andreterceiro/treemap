@@ -23,18 +23,22 @@ We need some assumptions, like the total `area`. We need to adopt the total `wid
 Thus, the total `area` will be 800x600 = 480.000.
 
 The `area` of off all parts needs to be proportional. In another words:
+
 - The sum of the parts is 83;
 - The total `area` is 480,000.
 
 Then we need a `scale` factor. The `scale` factor will be:
+
 - 480.000/83 = 5,783.1325 (approximately)
 
 Is a little obvios (kkk), but if we multiply the sum of the parts to the `scale` factor we will get the total ``area`:
-(1 + 2 + 10 + 20 + 50) * 5,783.1325 = 479,999.9975 = 478,000
+
+(1 + 2 + 10 + 20 + 50) * 5,783.1325 = 479,999.9975 = 478,000 (approximately).
 
 Proportionally, the `area` of the "1" part will be 5,783.1325
 
 We defined that the total square has the 800x600 dimensions. The solution of Chat GPT adopted the 3 minor values on the left and the remainder 2 values on the `right`. We will adopt that we will have:
+
 - If the total of the parts is an even number, then we will have half of the parts in the left and half of the parts in the right;
 - If the total of the parts is an odd number, then we will have half of the parts + 0.5 in the left and half of the parts -0.5 in the right. Example: 5 parts - half of this value is 2.5. 2.5 + 0.5 = 3 and 2.5 - 0.5 = 2. 3 + 2 = 5;
 - The lower values will be allocated in the left. And this will be result in a right solution? Yes, because the right part will be bigger in x aixis. 
@@ -53,8 +57,6 @@ We defined that the total square has the 800x600 dimensions. The solution of Cha
 
 ``` 
 
-And more complex strucures, with more than 2 columns as example? We will not build this types of treemaps.
-
 Let's return to our solution. We will have the `height` of 600. Thus the sum of the `height` of the three parts on the left will have the value 600. The dimension will be the same in this 3 parts. This way, proportionally, the `height` of the Y part "1" will be 1/(1 + 2 + 10) * 600 => 1/13 * 600 = 46.1538
 
 We know that the total `area` of the "1" part will be 5,783.1325 as we calculated before. Then the `width` will be:
@@ -64,6 +66,7 @@ We know that the total `area` of the "1" part will be 5,783.1325 as we calculate
 ```
 
 To calculate the another ``areas` (not ``width`s` or ``height`s`) we need only the make a multiplication respecting the proportionality. In another words:
+
 - "1" part: `area` will be 5,783.1325 x 1 = 5,783.1325 
 - "2" part: `area` will be 5,783.1325 x 2 = 11,566.2650
 - "10" part: `area` will be 5,783.1325 x 10 = 57,831.3250
@@ -71,6 +74,7 @@ To calculate the another ``areas` (not ``width`s` or ``height`s`) we need only t
 - "50" part: `area` will be 5,783.1325 x 50 = 289,156.6250
 
 Let's verify. We need to have the sum of the parts equals to the total:
+
 5,783.1325 + 11,566.2650 + 57,831.3250 + 115,662.6500 + 289,156.6250 = 479,999.9975
 
 479999.9975 is approximately 480,000.0000
@@ -80,11 +84,13 @@ We verified the `area`. Seem that we are right until now.
 Let's make another verification. The sum of the 3 y parts of the parts on the left needs to be equals to the total `height`. Reviewing the information of the `height` of the "1" part: 46.1538
 
 As the `width` of the 3 parts are equals, we can mutiply proportionally the values on `height`. Then:
+
 - 1 part: `height` = 46.1538
 - 2 part: `height` = 92.3076
 - 10 part: `height` = 461.5380
 
 Testing the sum:
+
 46.1538 + 92.3076 + 461.5380 = 599.9994 (approximately 600)
 
 Ok, a little obvious in mathematics as:
@@ -100,6 +106,7 @@ Than can calculate the `width` of the another part this way:
 800 - 125.3013 = 674.6987
 
 We already calculate the `area` of all the parts. Then we can calculate the `height`s:
+
 - "20" part: `height` will be 115,662.6500 / 674.6987 = 171.4285
 - "50" part:  `height` will be 289,156.6250 / 674.6987 = 428.5714
 
@@ -109,6 +116,7 @@ The sum of the calculated `height`s above is:
 Ok, seems right
 
 The rectangles will be:
+
 - Part "1": 125.3013 x 46.1538  
 - Part "2": 125.3013 x 92.3076 
 - Part "10": 125.3013 x 461.5380  
@@ -146,6 +154,7 @@ Let's try to use the canvas size 550x850 (width x height) and 6 items, making th
 Let's start with 3x2.
 
 The random values will be:
+
 - 5
 - 8
 - 9
@@ -160,6 +169,7 @@ We will put the lower values at the right. If we have 7 values? I think that you
 We talked about a interesting thing. How to select the number of items in each column. The user will select the number of columns and not the number of items for every column.
 
 Let's think in examples for three columns:
+
 - 6 items: 3 coluns with 2 items (3x2 = 6);
 - 7 items: 1 column with 3 items and 2 columns with 2 items (1x3 + 2x2 = 7);
 - 8 items: 2 columns with 2 items and 1 column with 1 item (2x3 + 1x2 = 8);
@@ -188,14 +198,17 @@ while ($numberOfColumns > 0) {
 ```
 
 Testing the solution for 6 items. First processing in the loop:
+
 $itemsPerColumns = [2]; // totalItem = 6/3 = 2 .. $remainderItems = 6 - 2 = 4
 $numberOfColumns = 2;
 
-Second
+Second:
+
 $itemsPerColumns = [2, 2]; // totalItem = 4/2 = 2 .. $remainderItems = 4 - 2 = 2
 $numberOfColumns = 1;
 
-Third
+Third:
+
 $itemsPerColumns = [2, 2, 2]; // totalItem = 2/1 = 2 .. $remainderItems = 2 - 2 = 0
 $numberOfColumns = 0; // Now exit the loop
 
@@ -223,34 +236,41 @@ while ($numberOfColumns > 0) {
 ```
 
 Testing the solution for 7 items. First processing in the loop:
+
 $itemsPerColumns = [3]; // totalItem = 7/3 = 2.33 (ceil = 3) ... $remainderItems = 7 - 3 = 4
 $numberOfColumns = 2;
 
-Second
+Second:
+
 $itemsPerColumns = [3, 2]; // totalItem = 4/2 = 2 (ceil = 2) ... $remainderItems = 4 - 2 = 2
 $numberOfColumns = 1;
 
-Third
+Third:
+
 $itemsPerColumns = [3, 2, 2]; // totalItem = 2/1 = 2 (ceil = 2) ... $remainderItems = 2 - 2 = 0
 $numberOfColumns = 0; // Now exit the loop
 
 Ok, still works. And for 8 items? Between solutions we are only modifying this line ($remainderItems = 6 // or 7 for 7 items), we will not repeat the code more, ok?
 
-First processing of the loop
+First processing of the loop:
+
 $itemsPerColumns = [3]; // totalItem = 8/3 = 2.66 (ceil = 3) ... $remainderItems = 8 - 3 = 5
 $numberOfColumns = 2;
 
-Second
+Second:
+
 $itemsPerColumns = [3, 3]; // totalItem = 5/2 = 2.5 (ceil = 3) ... $remainderItems = 5 - 3 = 2
 $numberOfColumns = 1;
 
-Third
+Third:
+
 $itemsPerColumns = [3, 3, 2]; // totalItem = 2/1 = 2 (ceil = 2) ... $remainderItems = 2 - 2 = 0
 $numberOfColumns = 0; // Now exit the loop
 
 Still works. Now for 9 items:
 
-First processing of the loop
+First processing of the loop:
+
 $itemsPerColumns = [3]; // totalItem = 9/3 = 3 (ceil = 3) ... $remainderItems = 9 - 3 = 6
 $numberOfColumns = 2;
 
@@ -292,6 +312,5 @@ The total area is 550 x 850 = 467,500
 
 The sum of the values of the items is 5 + 8 + 9 + 14 + 15 + 17 = 68
 
-Then the proportion will be 467,500 / 68 = 6875.0000 (6875)
-
+Then the scale factor will be 467,500 / 68 = 6875.0000 (6875)
 
