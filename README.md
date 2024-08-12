@@ -35,7 +35,7 @@ Then we need a `scale` factor. The `scale` factor will be:
 
 Is a little obvios (kkk), but if we multiply the sum of the parts to the `scale` factor we will get the total ``area`:
 
-(1 + 2 + 10 + 20 + 50) * 5,783.1325 = 479,999.9975 = 478,000 (approximately).
+(1 + 2 + 10 + 20 + 50) x 5,783.1325 = 479,999.9975 = 478,000 (approximately).
 
 Proportionally, the `area` of the "1" part will be 5,783.1325
 
@@ -59,7 +59,7 @@ We defined that the total square has the 800x600 dimensions. The solution of Cha
 
 ```
 
-Let's return to our solution. We will have the `height` of 600. Thus the sum of the `height` of the three parts on the left will have the value 600. The dimension will be the same in this 3 parts. This way, proportionally, the `height` of the Y part "1" will be 1/(1 + 2 + 10) * 600 => 1/13 * 600 = 46.1538
+Let's return to our solution. We will have the `height` of 600. Thus the sum of the `height` of the three parts on the left will have the value 600. The dimension will be the same in this 3 parts. This way, proportionally, the `height` of the Y part "1" will be 1/(1 + 2 + 10) x 600 => 1/13 x 600 = 46.1538
 
 We know that the total `area` of the "1" part will be 5,783.1325 as we calculated before. Then the `width` will be:
 
@@ -153,7 +153,7 @@ I think you understood the general idea. So the user will can select the number 
 
 And the user will can insert the total size in 2 fields, resulting in values like 1000x2000.
 
-Let's try to use the canvas size 850 x 550 (width x height) and 6 items, making the solution varianting between the arrangment 2x3 and 3x2.
+Let's try to use the total area size 850 x 550 (`width` x `height`) and 6 items, making the solution varianting between the arrangment 2x3 and 3x2.
 
 Let's start with 3x2.
 
@@ -342,9 +342,9 @@ The total height is 550 with the proportional parts 5, 8 and 9. So, the values o
  
 The sum of the values that will be allocated in the left part will be `5 + 8 + 9 = 22`  
 
-- Value 5: (550 / 22) * 5 = 125
-- Value 8: (550 / 22) * 8 = 200
-- Value 9: (550 / 22) * 9 = 225
+- Value 5: (550 / 22) x 5 = 125
+- Value 8: (550 / 22) x 8 = 200
+- Value 9: (550 / 22) x 9 = 225
 
 The sum of the `heights` of the parts needs to be equals to the total height. Let's verify:
 
@@ -393,4 +393,79 @@ We elaborated [this script](test/manual/test2.php) to build this treemap, with t
 ### 2 (lines) x 3 (columns) treemap
 
 Now let's make a treemap with 3 colums, with the same values of the previous study case.
+
+Let's try to use the total area size 850 x 550 (`width` x `height`) and now we will use the arrangment 2x3.
+
+The random values again will be:
+
+- 5
+- 8
+- 9
+- 14
+- 15
+- 17
+
+We will put the lower values on the left and if two value are in the same column, the lower value will be inserted at the top, generating the columns with the values:
+
+- 5 and 8
+- 9 and 14
+- 15 and 17
+
+Ignoring the PHP script that select the number of items per column, we start only put under this message to remember, but some values still the same as the previous example:
+
+- `Total area` = 85 x 550 = 467,500
+- Total sum of the items = 5 + 8 + 9 + 14 + 15 + 17 = 68
+- Proportional total area / sum of the items = 467,500 / 68 = 6,875
+
+We will have this proportions in y aixis:
+
+- Value 5: (550 / (5 + 8)) x 5 = 211.53846150
+- Value 8: (550 / (5 + 8)) x 8 = 338.46153840
+
+Sum of these two items = 549.99999990 = 550 (approximately) => right
+
+- Value 9: (550 / (9 + 14)) x 9 = 215.21739123
+- Value 14: (550 / (9 + 14)) x 14 = 334.78260858
+
+Sum of these two items = 549.99999981 = 550 (approximately) => right
+
+- Value 15: (550 / (15 + 17)) x 15 = 257.81250000
+- Value 17: (550 / (15 + 17)) x 17 = 292.18750000
+
+Sum of these two items = 550 => right
+
+The areas using the scale factor to calculate are:
+- Value 5: 6875 * 5 = 34375
+- Value 8: 6875 * 8 = 55000
+- Value 9: 6875 * 9 = 61875
+- Value 14: 6875 * 14 = 96250
+- Value 15: 6875 * 15 = 103125
+- Value 17: 6875 * 17 = 116875
+
+As we have the `heights` and the `areas` of each `area`, we can calculate the `widths`:
+
+- Value 5: 34,375 / 211.53846150 = 162.50000002
+- Value 8: 55,000 / 338.46153840 = 162.50000002
+
+Cool, same values! Same `widths`!
+
+- Value 9: 61,875 / 215.21739123 = 287.50000009
+- Value 14: 96,250 / 334.78260858 = 287.50000009
+
+Cool, same values! Same `widths`!
+
+- Value 15: 103,125 / 257.81250000 = 400
+- Value 17: 116,875 / 292.18750000 = 400
+
+Cool, same values! Same `widths`!
+
+Now let's sumirize the values to make the PHP script creation with GD easier (`width` x `height`):
+- Value 5: 162.50000002 x 211.53846150
+- Value 8: 162.50000002 x 338.46153840
+- Value 9: 287.50000009 x 215.21739123
+- Value 14: 287.50000009 x 334.78260858
+- Value 15: 400 x 257.81250000
+- Value 17: 400 x 292.18750000
+
+The script is [here](tests/manual/test3.php) and the implementation in a server is [here](http://www.terceiro.com.br/treemap/test3.php).
 
