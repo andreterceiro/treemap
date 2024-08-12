@@ -362,7 +362,7 @@ widthRightPart = 850 - 275 = 575
 ```
 
 We have the `areas` of the blocks of the `right` part. And the `width`. So we can calculate the `heights` (`height = area / width`):
-- Value 14: 96,250 / 575 = 163.39130434 (approximately)
+- Value 14: 96,250 / 575 = 167.39130434 (approximately)
 - Value 15: 103,125 / 575 = 179.34782608 (approximatelly)
 - Value 17: 116,875 / 575 = 203.26086956 (approximatelly)
 
@@ -379,8 +379,8 @@ Left part:
 
 Right part:
 
-- Value 14 - dimensions: 575 x 163.39130434. Area: 96,250
+- Value 14 - dimensions: 575 x 167.39130434. Area: 96,250
 - Value 15 - dimensions: 575 x 179.34782608. Area: 103,125
 - Value 17 - dimensions: 575 x 203.26086956. Area: 116,875
 
-We elaborated [this script](test/manual/test2.php) to build this treemap, with these values, with PHP (and GD). And you can see the execution of this script [here](http://www.terceiro.com.br/treemap/test2.php)
+We elaborated [this script](test/manual/test2.php) to build this treemap, with these values, with PHP (and GD). And you can see the execution of this script [here](http://www.terceiro.com.br/treemap/test2.php).
