@@ -149,7 +149,7 @@ I think you understood the general idea. So the user will can select the number 
 
 And the user will can insert the total size in 2 fields, resulting in values like 1000x2000.
 
-Let's try to use the canvas size 550x850 (width x height) and 6 items, making the solution varianting between the arrangment 2x3 and 3x2.
+Let's try to use the canvas size 850 x 550 (width x height) and 6 items, making the solution varianting between the arrangment 2x3 and 3x2.
 
 Let's start with 3x2.
 
@@ -288,7 +288,7 @@ Ok, the solution to select the number of items per column works.
 
 Let's return to our previous challenge. First we think that the user selected 2 columns. Then we will have:
 - 6 items in 2 columns, 3 items by column;
-- Total area of 550x850.
+- Total area of 850 x 550.
 
 Repeating the make the reading easier, our random values are:
 - 5
@@ -308,9 +308,65 @@ $numberOfColumns = 0;
 
 We reached as we noted before in 2 columns with 3 items in each column ([3, 3]).
 
-The total area is 550 x 850 = 467,500
+The total area is 850 x 550 = 467,500
 
 The sum of the values of the items is 5 + 8 + 9 + 14 + 15 + 17 = 68
 
-Then the scale factor will be 467,500 / 68 = 6875.0000 (6875)
+The = n the scale factor will be 467,500 / 68 = 6,875.0000 (6,875)
 
+We know that we must not have a unique `line height`, but we need the same `width` in the items of the same `column` (not only a unique `column width` for each `column`, but in the same `column` we will have an unique `width`).
+
+We will select the lower values to the left `column`, remembering that how the `column width will vary between different `columns`, we will have the `areas` proportionally allocated correctly.
+
+Proportionally to th values, we have this `areas`:
+
+- Value 5: 5 x 6,875 = 34,375 
+- Value 8: 8 x 6,875 = 55,000
+- Value 9: 9 x 6,875 = 61,875
+- Value 14: 14 x 6,875 = 96,250
+- Value 15: 15 x 6,875 = 103,125
+- Value 17: 17 x 6,875 = 116,875
+
+The sum of these small rectangle areas needs to be equals to the total rectangle area. Let's verify:
+34,375 + 55,000 + 61,875 + 96,250 + 103,125 + 116,875 = 850 x 550 = 467,500
+
+Ok, we are right until now.
+
+We know that we have two columns. The right column will have the lower values and the rectangles will vary in `height`.
+
+The total height is 550 with the proportional parts 5, 8 and 9. So, the values of the `heights` will be:
+ 
+The sum of the values that will be allocated in the left part will be `5 + 8 + 9 = 22`  
+
+- Value 5: (550 / 22) * 5 = 125 
+- Value 8: (550 / 22) * 8 = 200
+- Value 9: (550 / 22) * 9 = 225
+
+The sum of the `heights` of the parts needs to be equals to the total height. Let's verify:
+
+``` 
+125 + 200 + 225 = 550
+```
+
+Right until now... Then the `widths` needs to be the same in this three values and will be `area / height`:
+- Value 5: 34,375 / 125 = `275` 
+- Value 8: 55,000 / 200 = `275`
+- Value 9: 61,875 / 225 = `275`
+
+Right again! :)
+
+Now we can easily finish the calculations. The `width` of the `right` part will be `totalWidth - widthLeftPart`
+
+```
+widthRightPart = 850 - 275 = 575
+```
+
+We have the `areas` of the blocks of the `right` part. And the `width`. So we can calculate the `heights` (`height = area / width`):
+- Value 14: 96,250 / 575 = 163.39130434 (approximately)
+- Value 15: 103,125 / 575 = 179.34782608 (approximatelly)
+- Value 17: 116,875 / 575 = 203.26086956 (approximatelly)
+
+Let's sum these values to make a final verification:
+167.39130434 + 179.34782608 + 203.26086956 = 549.99999998 = 550 (approximately)
+
+Seems right...
