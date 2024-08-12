@@ -2,7 +2,7 @@
 
 As I will write the text in English, I will express the numbers in the notation adopted in US ("EUA" in brazilian portuguese). The thousand separator will be "," and decimal separator will be ".". We adopt the inverse in portuguese. 
 
-# Genreral
+# General
 
 Let's think. We need to allocate all the parts in a big part, who needs to be a perfect rectangle (or a square).
 
