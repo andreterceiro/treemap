@@ -166,7 +166,7 @@ The random values will be:
 - 15
 - 17
 
-We will put the lower values at the right. If we have 7 values? I think that you already understood that this will not be a problem, as we already make a treemap with 5 items at the beggining of this document. We only need to put more items in one (or more) columns and we will adjust the width of the column and the height of the line. We dont need the entire line with the same height. Please see [this example](https://terceiro.com.br/treemap/test-rectangle-1.php). In this example you can see that:
+We will put the lower values at the right. If we have 7 values? I think that you already understood that this will not be a problem, as we already make a treemap with 5 items at the beggining of this document. We only need to put more items in one (or more) columns and we will adjust the width of the column and the height of the line. We dont need the entire line with the same height. Comments:
 - the width of every column vary. But all items in the column have the same width of the column;
 - the height of the line is not the same. It vary for each item, as we need to adjust the area to be proportional of the value (**the porportion of each area item and the value its represent is the same**). 
 
