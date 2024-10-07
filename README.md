@@ -387,7 +387,7 @@ Right part:
 - Value 15 - dimensions: 575 x 179.34782608. Area: 103,125
 - Value 17 - dimensions: 575 x 203.26086956. Area: 116,875
 
-We elaborated [this script](test/manual/test2.php) to build this treemap, with these values, with PHP (and GD). And you can see the execution of this script [here](http://www.terceiro.com.br/treemap/test2.php).
+We elaborated [this script](tests/manual/test2.php) to build this treemap, with these values, with PHP (and GD). And you can see the execution of this script [here](http://www.terceiro.com.br/treemap/test2.php).
 
 
 ### 2 (lines) x 3 (columns) treemap
