@@ -8,7 +8,7 @@ After the initial solution I will make a [more flexible solution](#more-flexible
 
 # General
 
-### 2 columns, left colunn with 3 items and right column with 2 items - 5 items
+### 2 columns, left column with 3 items and right column with 2 items - 5 items
 
 Let's think. We need to allocate all the parts in a big part, who needs to be a perfect rectangle (or a square).
 
